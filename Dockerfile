@@ -1,5 +1,8 @@
-FROM ollama/ollama:latest
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
+FROM ollama/ollama
+
+# מושך את המודל llama3
+RUN ollama pull llama3
+
 EXPOSE 11434
-CMD ["/start.sh"]
+
+CMD ["ollama", "serve"]
